@@ -1,5 +1,7 @@
 package vendingmachine.service;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
 import vendingmachine.domain.VendingMachine;
 
 public class VendingMachineService {
@@ -9,10 +11,13 @@ public class VendingMachineService {
         machine = new VendingMachine();
     }
 
-    public void setVendingMachineMoney() {
-
+    public void setVendingMachineMoney(int userMoney) {
+        machine.setMachineMoney(userMoney);
     }
 
+    public Map<Integer, Integer> getChangeAmount() {
+        return new LinkedHashMap<>();
+    }
 
     public void setProduct(String productDetails) {
 

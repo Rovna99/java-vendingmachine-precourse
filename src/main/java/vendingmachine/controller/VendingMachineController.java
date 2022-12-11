@@ -2,6 +2,7 @@ package vendingmachine.controller;
 
 import java.util.function.Supplier;
 import vendingmachine.service.VendingMachineService;
+import vendingmachine.view.OutputView;
 
 public class VendingMachineController {
     private final VendingMachineService service;
@@ -18,6 +19,14 @@ public class VendingMachineController {
     }
 
     private void setMachineMoney() {
+        try {
+            int inputMoney = 0;
+            service.setVendingMachineMoney(inputMoney);
+            OutputView.printChangeAmount(service.getChangeAmount());
+        } catch (IllegalArgumentException e) {
+            OutputView.printError(e.getMessage());
+            setMachineMoney();
+        }
     }
 
     private void setMachineProduct() {

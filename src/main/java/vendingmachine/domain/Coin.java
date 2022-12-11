@@ -1,5 +1,9 @@
 package vendingmachine.domain;
 
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public enum Coin {
     COIN_500(500),
     COIN_100(100),
@@ -12,5 +16,12 @@ public enum Coin {
         this.amount = amount;
     }
 
-    // 추가 기능 구현
+    public static Map<Integer, Integer> moneyToChange(int money) {
+        Map<Integer, Integer> changes = new LinkedHashMap<>();
+        for (Coin value : Coin.values()) {
+            changes.put(value.amount, money % value.amount);
+            money %= value.amount;
+        }
+        return changes;
+    }
 }
