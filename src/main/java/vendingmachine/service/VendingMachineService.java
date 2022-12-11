@@ -16,7 +16,7 @@ public class VendingMachineService {
     }
 
     public Map<Integer, Integer> getChangeAmount() {
-        return new LinkedHashMap<>();
+        return machine.getChanges();
     }
 
     public void setProduct(String productDetails) {

@@ -10,4 +10,7 @@ public class MachineState {
         this.changes = changes;
     }
 
+    public Map<Integer, Integer> getChanges() {
+        return changes;
+    }
 }

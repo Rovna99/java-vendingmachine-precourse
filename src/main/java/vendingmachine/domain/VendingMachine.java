@@ -1,5 +1,7 @@
 package vendingmachine.domain;
 
+import java.util.Map;
+
 public class VendingMachine {
     private final MachineState state;
 
@@ -10,6 +12,10 @@ public class VendingMachine {
     public void setMachineMoney(int money) {
         MachineValidator.checkMachineMoney(money);
         state.saveChanges(Coin.moneyToChange(money));
+    }
+
+    public Map<Integer, Integer> getChanges() {
+        return state.getChanges();
     }
 
     public void setProduct() {
