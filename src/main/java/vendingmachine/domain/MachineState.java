@@ -1,5 +1,6 @@
 package vendingmachine.domain;
 
+import java.util.List;
 import java.util.Map;
 
 public class MachineState {
@@ -12,5 +13,9 @@ public class MachineState {
 
     public Map<Integer, Integer> getChanges() {
         return changes;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = new Products(products);
     }
 }

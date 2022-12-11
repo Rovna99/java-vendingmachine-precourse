@@ -30,6 +30,13 @@ public class VendingMachineController {
     }
 
     private void setMachineProduct() {
+        try {
+            String inputDetails = "";
+            service.setProduct(inputDetails);
+        } catch (IllegalArgumentException e) {
+            OutputView.printError(e.getMessage());
+            setMachineMoney();
+        }
     }
 
     private void startSellProduct() {

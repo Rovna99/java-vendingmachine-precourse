@@ -5,9 +5,9 @@ public class Product {
     private final int price;
     private final int amount;
 
-    public Product(String name, int price, int amount) {
+    public Product(String name, String price, String amount) {
         this.name = name;
-        this.price = price;
-        this.amount = amount;
+        this.price = Integer.parseInt(price);
+        this.amount = Integer.parseInt(amount);
     }
 }

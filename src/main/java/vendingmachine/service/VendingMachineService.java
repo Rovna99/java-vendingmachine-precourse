@@ -20,7 +20,7 @@ public class VendingMachineService {
     }
 
     public void setProduct(String productDetails) {
-
+        machine.setProduct(productDetails);
     }
 
     public void sellProduct(String productName) {
