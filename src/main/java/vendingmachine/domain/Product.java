@@ -9,6 +9,7 @@ public class Product {
         this.name = name;
         this.price = Integer.parseInt(price);
         this.amount = Integer.parseInt(amount);
+        MachineValidator.checkMachineProduct(this.price, this.amount);
     }
 
     public boolean isExhaustion() {
