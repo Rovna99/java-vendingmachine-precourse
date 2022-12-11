@@ -40,6 +40,22 @@ public class VendingMachineController {
     }
 
     private void startSellProduct() {
+        try {
+            int inputUserMoney = 0;
+            service.comeNewCustomer(inputUserMoney);
+            sellProduct();
+        } catch (IllegalArgumentException e) {
+            OutputView.printError(e.getMessage());
+            setMachineMoney();
+        }
+    }
+
+    private void sellProduct() {
+        while (service.isSellEnd()) {
+            String sellName = "";
+            service.sellProduct(sellName);
+            OutputView.printRemainMoney();
+        }
     }
 
     private void returnChange() {

@@ -10,4 +10,12 @@ public class Product {
         this.price = Integer.parseInt(price);
         this.amount = Integer.parseInt(amount);
     }
+
+    public boolean isExhaustion() {
+        return amount == 0;
+    }
+
+    public int getPrice() {
+        return price;
+    }
 }

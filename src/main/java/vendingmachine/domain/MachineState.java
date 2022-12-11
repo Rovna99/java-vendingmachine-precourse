@@ -18,4 +18,12 @@ public class MachineState {
     public void setProducts(List<Product> products) {
         this.products = new Products(products);
     }
+
+    public boolean endSell() {
+        return products.isProductZero();
+    }
+
+    public int checkMinimumPrice() {
+        return products.findMinimumPrice();
+    }
 }

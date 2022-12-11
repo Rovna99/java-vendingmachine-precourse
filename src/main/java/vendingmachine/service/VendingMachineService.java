@@ -1,11 +1,12 @@
 package vendingmachine.service;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
+import vendingmachine.domain.User;
 import vendingmachine.domain.VendingMachine;
 
 public class VendingMachineService {
     private final VendingMachine machine;
+    private User user;
 
     public VendingMachineService() {
         machine = new VendingMachine();
@@ -23,8 +24,15 @@ public class VendingMachineService {
         machine.setProduct(productDetails);
     }
 
-    public void sellProduct(String productName) {
+    public void comeNewCustomer(int money) {
+        user = new User(money);
+    }
 
+    public boolean isSellEnd() {
+        return (machine.isEnd() || user.isMoneyScarce(machine.getMinimumPrice()));
+    }
+
+    public void sellProduct(String productName) {
     }
 
     public void returnChange() {

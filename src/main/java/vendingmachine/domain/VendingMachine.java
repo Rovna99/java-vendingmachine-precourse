@@ -30,6 +30,14 @@ public class VendingMachine {
         state.setProducts(products);
     }
 
+    public boolean isEnd() {
+       return state.endSell();
+    }
+
+    public int getMinimumPrice() {
+        return state.checkMinimumPrice();
+    }
+
     public void sellProduct() {
 
     }
