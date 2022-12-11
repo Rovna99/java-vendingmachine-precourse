@@ -5,6 +5,7 @@ public class User {
 
     public User(int money) {
         userMoney = money;
+        MachineValidator.checkUserMoney(money);
     }
 
     public void subtractPrice(int charge) {
