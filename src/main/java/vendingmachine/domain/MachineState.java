@@ -41,7 +41,7 @@ public class MachineState {
         return returnChanges;
     }
 
-    private int countCoins(Entry<Integer,Integer> e, Map<Integer, Integer> returnChanges, int userRemainMoney) {
+    private int countCoins(Entry<Integer, Integer> e, Map<Integer, Integer> returnChanges, int userRemainMoney) {
         int money = 0;
         int count;
         for (count = 0; count < e.getValue(); count++) {

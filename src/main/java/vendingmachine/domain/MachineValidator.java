@@ -6,7 +6,10 @@ public class MachineValidator {
             "가격은 10원 단위로 나누어 떨어져야 하며, 100-4000원 사이입니다. 또한, 수량은 99개가 최대입니다.";
     private static final String USER_MONEY_ERROR_MESSAGE = "금액은 10원 단위로 나누어 떨어져야 하며, 100-50000원 사이입니다.";
 
-    private MachineValidator(){};
+    private MachineValidator() {
+    }
+
+    ;
 
     public static void checkMachineMoney(int money) {
         if (money % 10 != 0 || money < 10 || money > 1000000) {

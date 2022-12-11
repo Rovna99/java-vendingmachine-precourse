@@ -9,7 +9,7 @@ public class OutputView {
     private static final String PRINT_REMAIN_MONEY = "\n투입 금액: %s원%n";
 
 
-    private OutputView(){
+    private OutputView() {
 
     }
 

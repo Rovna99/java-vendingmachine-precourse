@@ -1,8 +1,5 @@
 package vendingmachine.controller;
 
-import java.util.Map;
-import java.util.function.Supplier;
-import vendingmachine.domain.Coin;
 import vendingmachine.service.VendingMachineService;
 import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;

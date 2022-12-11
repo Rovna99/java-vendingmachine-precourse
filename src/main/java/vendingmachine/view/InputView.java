@@ -12,14 +12,15 @@ public class InputView {
     private static final String INPUT_MACHINE_MONEY_ERROR_MESSAGE = "자판기 보유 금액은 자연수여야 합니다.";
     private static final String INPUT_PRODUCT_DETAILS_MESSAGE = "상품명과 가격, 수량을 입력해 주세요.";
     private static final String INPUT_PRODUCT_DETAILS_ERROR_MESSAGE = "상품명은 한글이어야 하며, 가격, 수량은 자연수여야 합니다."
-                    + "\n상품명, 가격, 수량을 쉼표로, 개별 상품을 대괄호([])로 묶어 세미콜론(;)으로 구분해주세요"
+            + "\n상품명, 가격, 수량을 쉼표로, 개별 상품을 대괄호([])로 묶어 세미콜론(;)으로 구분해주세요"
             + "\n예시: [콜라,1500,20];[사이다,1000,10]";
     private static final String INPUT_USER_MONEY_MESSAGE = "투입 금액을 입력해 주세요.";
     private static final String INPUT_USER_MONEY_ERROR_MESSAGE = "투입 금액은 자연수여야 합니다.";
     private static final String INPUT_WANT_PRODUCT_MESSAGE = "구매할 상품명을 입력해 주세요.";
     private static final String INPUT_WANT_PRODUCT_ERROR_MESSAGE = "구매할 상품명은 한글이어야 합니다.";
 
-    private InputView(){}
+    private InputView() {
+    }
 
     public static String inputMachineMoney() {
         System.out.println(INPUT_MACHINE_MONEY_MESSAGE);
@@ -53,7 +54,7 @@ public class InputView {
 
     private static void checkDetails(String input) {
         for (String product : input.split(";")) {
-            product = product.substring(1, product.length()-1);
+            product = product.substring(1, product.length() - 1);
             List<String> details = Arrays.asList(product.split(","));
             if (!KOREAN_REGEX.matcher(details.get(0)).matches() || !NUMBER_REGEX.matcher(details.get(1)).matches() ||
                     !NUMBER_REGEX.matcher(details.get(2)).matches()) {
