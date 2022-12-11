@@ -9,8 +9,6 @@ public class MachineValidator {
     private MachineValidator() {
     }
 
-    ;
-
     public static void checkMachineMoney(int money) {
         if (money % 10 != 0 || money < 10 || money > 1000000) {
             throw new IllegalArgumentException(MACHINE_MONEY_ERROR_MESSAGE);
