@@ -43,7 +43,7 @@ public class VendingMachine {
         return state.sellUserWantProduct(productName);
     }
 
-    public void returnChange() {
-
+    public Map<Integer, Integer> returnChange(int userRemainMoney) {
+        return state.returnChange(userRemainMoney);
     }
 }

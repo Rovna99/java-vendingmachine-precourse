@@ -41,7 +41,7 @@ public class VendingMachineService {
         return user.getUserMoney();
     }
 
-    public void returnChange() {
-
+    public Map<Integer, Integer> returnChange() {
+        return machine.returnChange(user.getUserMoney());
     }
 }

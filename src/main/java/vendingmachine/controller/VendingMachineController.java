@@ -64,7 +64,6 @@ public class VendingMachineController {
     private void returnChange() {
         int remainMoney = service.getRemainMoney();
         OutputView.printRemainMoney(remainMoney);
-        Map<Integer, Integer> remainChanges = Coin.moneyToChange(remainMoney);
-        OutputView.printReturnChange(remainChanges);
+        OutputView.printReturnChange(service.returnChange());
     }
 }
