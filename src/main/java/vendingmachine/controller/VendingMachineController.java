@@ -1,6 +1,8 @@
 package vendingmachine.controller;
 
+import java.util.Map;
 import java.util.function.Supplier;
+import vendingmachine.domain.Coin;
 import vendingmachine.service.VendingMachineService;
 import vendingmachine.view.OutputView;
 
@@ -52,21 +54,16 @@ public class VendingMachineController {
 
     private void sellProduct() {
         while (service.isSellEnd()) {
+            OutputView.printRemainMoney(service.getRemainMoney());
             String sellName = "";
             service.sellProduct(sellName);
-            OutputView.printRemainMoney(service.getRemainMoney());
         }
     }
 
     private void returnChange() {
-    }
-
-    private <T> T repeat(Supplier<T> inputReader) {
-        try {
-            return inputReader.get();
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return repeat(inputReader);
-        }
+        int remainMoney = service.getRemainMoney();
+        OutputView.printRemainMoney(remainMoney);
+        Map<Integer, Integer> remainChanges = Coin.moneyToChange(remainMoney);
+        OutputView.printReturnChange(remainChanges);
     }
 }

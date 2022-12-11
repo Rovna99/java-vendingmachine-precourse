@@ -19,7 +19,7 @@ public enum Coin {
     public static Map<Integer, Integer> moneyToChange(int money) {
         Map<Integer, Integer> changes = new LinkedHashMap<>();
         for (Coin value : Coin.values()) {
-            changes.put(value.amount, money % value.amount);
+            changes.put(value.amount, money / value.amount);
             money %= value.amount;
         }
         return changes;

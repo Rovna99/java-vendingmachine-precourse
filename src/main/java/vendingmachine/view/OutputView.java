@@ -25,8 +25,14 @@ public class OutputView {
         System.out.printf(PRINT_REMAIN_MONEY, money);
     }
 
-    public static void printReturnChange() {
-
+    public static void printReturnChange(Map<Integer, Integer> changes) {
+        for (Entry<Integer, Integer> e : changes.entrySet()) {
+            if (e.getValue() != 0) {
+                String money = e.getKey() + "원";
+                String amount = e.getValue() + "개";
+                System.out.println(String.join(CHANGES_DELIMITER, money, amount));
+            }
+        }
     }
 
     public static void printError(String message) {
