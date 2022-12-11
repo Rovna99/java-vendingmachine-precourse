@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 public class OutputView {
     private static final String DEFAULT_ERROR_INTRO = "[ERROR] ";
     private static final String CHANGES_DELIMITER = " - ";
-    private static final String PRINT_REMAIN_MONEY = "투입금액: %s원%n";
+    private static final String PRINT_REMAIN_MONEY = "\n투입금액: %s원%n";
 
 
     private OutputView(){

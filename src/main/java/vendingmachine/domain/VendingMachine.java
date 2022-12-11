@@ -24,6 +24,7 @@ public class VendingMachine {
     public void setProduct(String details) {
         List<Product> products = new ArrayList<>();
         for (String product : details.split(";")) {
+            product = product.substring(1, product.length()-2);
             List<String> productDetail = Arrays.asList(product.split(","));
             products.add(new Product(productDetail.get(0), productDetail.get(1), productDetail.get(2)));
         }

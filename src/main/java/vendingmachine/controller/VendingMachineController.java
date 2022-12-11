@@ -34,29 +34,29 @@ public class VendingMachineController {
 
     private void setMachineProduct() {
         try {
-            String inputDetails = "";
+            String inputDetails = InputView.inputProductDetails();
             service.setProduct(inputDetails);
         } catch (IllegalArgumentException e) {
             OutputView.printError(e.getMessage());
-            setMachineMoney();
+            setMachineProduct();
         }
     }
 
     private void startSellProduct() {
         try {
-            int inputUserMoney = 0;
+            int inputUserMoney = Integer.parseInt(InputView.inputUserMoney());
             service.comeNewCustomer(inputUserMoney);
             sellProduct();
         } catch (IllegalArgumentException e) {
             OutputView.printError(e.getMessage());
-            setMachineMoney();
+            startSellProduct();
         }
     }
 
     private void sellProduct() {
-        while (service.isSellEnd()) {
+        while (!service.isSellEnd()) {
             OutputView.printRemainMoney(service.getRemainMoney());
-            String sellName = "";
+            String sellName = InputView.inputWantProduct();
             service.sellProduct(sellName);
         }
     }
