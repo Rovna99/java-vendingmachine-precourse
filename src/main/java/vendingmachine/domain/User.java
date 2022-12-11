@@ -14,4 +14,8 @@ public class User {
     public boolean isMoneyScarce(int minimumPrice) {
         return userMoney < minimumPrice;
     }
+
+    public int getUserMoney() {
+        return userMoney;
+    }
 }

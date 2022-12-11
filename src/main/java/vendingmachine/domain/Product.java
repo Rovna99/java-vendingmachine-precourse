@@ -3,7 +3,7 @@ package vendingmachine.domain;
 public class Product {
     private final String name;
     private final int price;
-    private final int amount;
+    private int amount;
 
     public Product(String name, String price, String amount) {
         this.name = name;
@@ -16,6 +16,15 @@ public class Product {
     }
 
     public int getPrice() {
+        return price;
+    }
+
+    public boolean isRightProduct(String name) {
+        return this.name.equals(name);
+    }
+
+    public int chargeProduct() {
+        amount--;
         return price;
     }
 }

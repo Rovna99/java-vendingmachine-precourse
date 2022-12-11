@@ -26,4 +26,14 @@ public class Products {
         }
         return minimum;
     }
+
+    public int sell(String productName) {
+        int price = 0;
+        for (Product product : products) {
+            if (product.isRightProduct(productName)) {
+                price = product.chargeProduct();
+            }
+        }
+        return price;
+    }
 }

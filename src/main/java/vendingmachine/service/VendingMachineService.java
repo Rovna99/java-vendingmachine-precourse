@@ -33,6 +33,12 @@ public class VendingMachineService {
     }
 
     public void sellProduct(String productName) {
+        int price = machine.sellProduct(productName);
+        user.subtractPrice(price);
+    }
+
+    public int getRemainMoney() {
+        return user.getUserMoney();
     }
 
     public void returnChange() {

@@ -38,8 +38,8 @@ public class VendingMachine {
         return state.checkMinimumPrice();
     }
 
-    public void sellProduct() {
-
+    public int sellProduct(String productName) {
+        return state.sellUserWantProduct(productName);
     }
 
     public void returnChange() {

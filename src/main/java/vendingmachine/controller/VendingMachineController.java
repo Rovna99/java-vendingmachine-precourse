@@ -54,7 +54,7 @@ public class VendingMachineController {
         while (service.isSellEnd()) {
             String sellName = "";
             service.sellProduct(sellName);
-            OutputView.printRemainMoney();
+            OutputView.printRemainMoney(service.getRemainMoney());
         }
     }
 

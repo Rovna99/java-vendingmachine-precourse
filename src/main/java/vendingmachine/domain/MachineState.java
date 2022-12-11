@@ -26,4 +26,8 @@ public class MachineState {
     public int checkMinimumPrice() {
         return products.findMinimumPrice();
     }
+
+    public int sellUserWantProduct(String productName) {
+        return products.sell(productName);
+    }
 }
