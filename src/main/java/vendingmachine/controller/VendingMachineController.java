@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 import vendingmachine.domain.Coin;
 import vendingmachine.service.VendingMachineService;
+import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;
 
 public class VendingMachineController {
@@ -22,7 +23,7 @@ public class VendingMachineController {
 
     private void setMachineMoney() {
         try {
-            int inputMoney = 0;
+            int inputMoney = Integer.parseInt(InputView.inputMachineMoney());
             service.setVendingMachineMoney(inputMoney);
             OutputView.printChangeAmount(service.getChangeAmount());
         } catch (IllegalArgumentException e) {
