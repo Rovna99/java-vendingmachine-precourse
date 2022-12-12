@@ -3,6 +3,7 @@ package vendingmachine.domain;
 import java.util.List;
 
 public class Products {
+    private static final String NOT_FIND_WANT_PRODUCT = "현재 판매하지 않는 제품입니다.";
     private final List<Product> products;
 
     public Products(List<Product> product) {
@@ -27,12 +28,11 @@ public class Products {
     }
 
     public int sell(String productName) {
-        int price = 0;
         for (Product product : products) {
             if (product.isRightProduct(productName)) {
-                price = product.chargeProduct();
+                return product.chargeProduct();
             }
         }
-        return price;
+        throw new IllegalArgumentException(NOT_FIND_WANT_PRODUCT);
     }
 }

@@ -14,6 +14,7 @@ public class VendingMachineController {
     public void run() {
         setMachineMoney();
         setMachineProduct();
+        setNewCustomer();
         startSellProduct();
         returnChange();
     }
@@ -39,22 +40,25 @@ public class VendingMachineController {
         }
     }
 
-    private void startSellProduct() {
+    private void setNewCustomer() {
         try {
             int inputUserMoney = Integer.parseInt(InputView.inputUserMoney());
             service.comeNewCustomer(inputUserMoney);
-            sellProduct();
         } catch (IllegalArgumentException e) {
             OutputView.printError(e.getMessage());
-            startSellProduct();
+            setNewCustomer();
         }
     }
 
-    private void sellProduct() {
+    private void startSellProduct() {
         while (!service.isSellEnd()) {
-            OutputView.printRemainMoney(service.getRemainMoney());
-            String sellName = InputView.inputWantProduct();
-            service.sellProduct(sellName);
+            try {
+                OutputView.printRemainMoney(service.getRemainMoney());
+                String sellName = InputView.inputWantProduct();
+                service.sellProduct(sellName);
+            } catch (IllegalArgumentException e) {
+                OutputView.printError(e.getMessage());
+            }
         }
     }
 

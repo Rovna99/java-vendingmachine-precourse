@@ -16,7 +16,7 @@ public class MachineValidator {
     }
 
     public static void checkMachineProduct(int price, int amount) {
-        if (price % 10 != 0 || price < 100 || amount > 99) {
+        if (price % 10 != 0 || price < 100 || amount > 99 || amount <= 0) {
             throw new IllegalArgumentException(MACHINE_PRODUCT_ERROR_MESSAGE);
         }
     }
